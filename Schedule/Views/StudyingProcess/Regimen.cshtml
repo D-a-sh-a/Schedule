@@ -1,0 +1,42 @@
+﻿@using Schedule.Enums
+@using Schedule.ViewModels
+@model RegimenViewModel
+@if (Model != null)
+{
+	<div class="row row-cols-1 row-cols-md-2 g-5">
+		@foreach (var day in Model.days)
+		{
+			var counter = 0;
+			<div class="col">
+				<table class="table">
+					<caption><h5>@DaysEnum.GetDayName(day.day)</h5></caption>
+					@foreach (var row in Model.timetable)
+					{
+						<tr>
+							<td>@row</td>
+							<td>
+								@day.subjectNames.FirstOrDefault(p => p.id == counter)?.value
+								@if (ViewBag.role == "Student")
+								{
+									<br /> @day.subjectLecturerNames.FirstOrDefault(p => p.id == counter)?.value
+
+								}
+							</td>
+						</tr>
+						counter += 1;
+					}
+				</table>
+			</div>
+		}
+	</div>
+
+}
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		var homeElement = document.getElementById("nav-link-regimen");
+		if (homeElement)
+			homeElement.classList.add("active");
+
+	});
+</script>
+<link href="/css/RegimenStyle.css" rel="stylesheet" />

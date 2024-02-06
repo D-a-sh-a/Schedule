@@ -1,0 +1,49 @@
+﻿body {
+    color: #34495E;
+    background-color: #E8F8F5;
+}
+
+.input--style {
+    color: #34495E !important;
+    background-color: #E8F8F5 !important;
+    border: none;
+    border-bottom: 2px solid #2ECC71;
+    outline: none;
+}
+
+#login {
+    background-color: #2ECC71;
+    color: #34495E;
+    border: solid 2px #2ECC71;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    #login:hover {
+        background-color: #E8F8F5;
+    }
+
+.modal-content {
+    background-color: #E8F8F5;
+    color: #34495E;
+    border: solid 2px #2ECC71;
+    border-radius: 5px;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    border-top: solid 2px #2ECC71;
+    padding: 10px;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0 50px #E8F8F5 !important;
+}

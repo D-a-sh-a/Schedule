@@ -1,0 +1,27 @@
+﻿body {
+    color: #34495E !important;
+    background-color: #E8F8F5;
+}
+
+.card--style {
+    color: #34495E !important;
+    border: solid 2px #2ECC71 !important;
+    background-color: #E8F8F5;
+}
+
+#loginbtn {
+    border: solid 2px #2ECC71;
+}
+
+.form-control {
+    border: solid 2px #2ECC71;
+    background-color: #E8F8F5 !important;
+}
+
+.container, .row {
+    margin: 1% auto;
+}
+
+.table {
+    border: solid 2px #2ECC71;
+}

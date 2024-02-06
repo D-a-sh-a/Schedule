@@ -1,0 +1,42 @@
+﻿@model Schedule.ViewModels.RegisterViewModel
+
+<head>
+	<link rel="stylesheet" href="/css/register_style.css" type="text/css" />
+</head>
+<div class="gradient">
+	<div style="margin: 10px; margin-top: 0; padding-top: 10px; display: flex; flex-direction: row;">
+		<svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 5px" width="16" height="16" fill="white" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+			<path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+		</svg>
+		<p><a href="index.html" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Back to main</a></p>
+	</div>
+	<div class="main_form">
+		<form asp-action="Register" asp-controller="Account" method="post">
+			<p class="header_register">Register</p>
+			<div class="input_box">
+				<input asp-for="@Model.email" data-bs-theme="dark" type="email" class="form-control" id="input_email_register" placeholder="name@example.com">
+			</div>
+			<div class="input_box">
+				<input data-bs-theme="dark" asp-for="@Model.PIB" type="text" class="form-control" id="input_name_register" placeholder="ПІБ">
+			</div>
+			<div class="input_box">
+				<input asp-for="@Model.group_course" data-bs-theme="dark" type="number" class="form-control" id="input_git_name_register" value="1" min="1" max="5">
+			</div>
+			<div class="input_box">
+				<input asp-for="@Model.group_name" list="itemList" data-bs-theme="dark" type="tel" class="form-control" placeholder="ЦТ">
+			</div>
+			<div class="input_box">
+				<input data-bs-theme="dark" asp-for="@Model.password" type="password" class="form-control" placeholder="password">
+			</div>
+			<datalist id="itemList">
+				@foreach (var item in Model.group_names)
+				{
+					<option value="@item"></option>
+				}
+			</datalist>
+			<button type="submit" class="btn btn-outline-primary btn_register">Register</button>
+		</form>
+	</div>
+</div>
+
+

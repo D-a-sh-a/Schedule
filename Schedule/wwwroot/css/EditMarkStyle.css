@@ -1,0 +1,49 @@
+﻿body{
+    color: #34495E;
+    background-color: #E8F8F5;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+    align-items: stretch;
+}
+    .stng {
+    overflow-x: auto;
+}
+    .table-container table {
+        border-collapse: collapse;
+        width: 50%;
+    }
+
+td {
+    min-width: fit-content;
+    white-space: nowrap;
+    border: 2px solid #2ECC71;
+    height: 50px;
+}
+
+input {
+    border: transparent;
+    background-color: #E8F8F5;
+    max-width: 60px;
+    min-width: 50px;
+}
+select {
+    border: solid 2px #2ECC71;
+    background-color: #E8F8F5 !important;
+}
+    select:active {
+        border: solid 2px #2ECC71;
+        background-color: #E8F8F5 !important;
+    }
+.button {
+    background-color: #E8F8F5;
+    color: #34495E;
+    border: solid 2px #2ECC71;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 30px;
+}

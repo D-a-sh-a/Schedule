@@ -1,0 +1,32 @@
+﻿@using Schedule.ViewModels
+@model SubjectViewModel
+
+<form asp-action="CreateSubject" method="post">
+    <div class="container text-center">
+        <div class="col">
+            Авторизація
+        </div>
+    </div>
+    <div class="container text-start">
+        <div class="row justify-content-center mb-3">
+            <div class="col-sm-6">
+                <input type="text" value="" asp-for="@Model.subject_name" class="input--style form-control">
+            </div>
+        </div>
+        <div class="input_box">
+            <select asp-for="@Model.id_lecturer" data-bs-theme="dark" type="text" class="form-control">
+                @foreach (var item in Model.Lecturers)
+                {
+                    <option value="@item.id" >@item.value</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col">
+                <button class="btn" type="submit" id="loginbtn">Увійти</button>
+            </div>
+        </div>
+    </div>
+</form>

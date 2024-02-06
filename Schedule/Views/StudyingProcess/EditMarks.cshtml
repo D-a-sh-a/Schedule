@@ -1,0 +1,178 @@
+﻿@using Schedule.ViewModels
+@model EditMarkViewModel
+
+@{
+    bool isStudent = ViewBag.role == "Student" ? true:false;
+}
+
+@if (Model.Subjects is not null)
+{
+    <select onchange="refetch(this.options[this.selectedIndex].id, @Model.groupId)">
+        <option id="0" >Select an option</option>
+        @foreach (var i in Model.Subjects)
+        {
+            if (i.id != Model.subjectId)
+            {
+                <option id="@i.id">@i.value</option>
+            }
+            else
+            {
+                <option id="@i.id" selected>@i.value</option>
+            }
+        }
+    </select>
+}
+
+@if (!isStudent && Model.Groups is not null)
+{
+    <select onchange="refetch(@Model.subjectId,  this.options[this.selectedIndex].id)">
+        <option id="0">Select an option</option>
+        @foreach (var i in Model.Groups)
+        {
+            if (i.id != Model.groupId)
+            {
+                <option id="@i.id">@i.value</option>
+            }
+            else
+            {
+                <option id="@i.id" selected>@i.value</option>
+            }
+        }
+    </select>
+}
+
+@if (Model.Rows is not null)
+{
+    <div class="table-container">
+        <div class="chief">
+            <table class="text-center">
+                <tr>
+                    <td></td>
+                </tr>
+                @foreach (var row in Model.Rows)
+                {
+                    <tr>
+                        <td>@row.StudentName</td>
+                    </tr>
+                }
+            </table>
+            @if (@ViewBag.role == "Lecturer")
+            {
+                <button class="button" onclick="sendData()">send</button>
+            }
+        </div>
+        <div class="stng">
+            <table class="text-center">
+                <tr>
+                    @foreach (var date in Model.RowNames)
+                    {
+                        <td>@date</td>
+                    }
+                </tr>
+                @foreach (var row in Model.Rows)
+                {
+                    <tr>
+                        @foreach (var date in Model.RowNames)
+                        {
+                            var markIndex = Model.RowNames.IndexOf(date);
+                            var mark = markIndex < row.StudentMarks.Count ? row.StudentMarks[markIndex] : "";
+
+                            <td>
+                                @if (!string.IsNullOrEmpty(mark))
+                                {
+                                    <input disabled=@isStudent type="number" name="mark" min="1" value="@mark.Replace(',', '.')" onchange="changeMark('@Model.RowNames[markIndex]','@row.StudentName'  , this.value)" />
+                                }
+                                else
+                                {
+                                    <input disabled=@isStudent type="number" name="mark" min="1" onchange="changeMark('@Model.RowNames[markIndex]','@row.StudentName'  , this.value)" />
+
+                                }
+                            </td>
+                        }
+                    </tr>
+                }
+            </table>
+           
+        </div>
+    </div>
+}
+<link href="/css/EditMarkStyle.css" rel="stylesheet">
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var homeElement = document.getElementById("nav-link-marks");
+        if (homeElement)
+            homeElement.classList.add("active");
+
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+
+
+    function changeMark(date, name, mark) {
+
+        var index = dates.findIndex((item, i) => item === date && names[i] === name);
+
+        if (index === -1) {
+            dates.push(date);
+            names.push(name);
+            marks.push(mark);
+        }
+        else {
+            marks[index] = mark;
+        }
+    }
+
+
+    var dates = [];
+    var names = [];
+    var marks = [];
+
+    function sendData() {
+
+        let tempSubjectId, tempGroupId;
+        let formData = new FormData();
+
+        dates.forEach((date, index) => {
+            formData.append(`dates[${index}]`, date);
+        });
+
+        names.forEach((name, index) => {
+            formData.append(`names[${index}]`, name);
+        });
+
+        marks.forEach((mark, index) => {
+            formData.append(`marks[${index}]`, mark);
+        });
+        formData.append(`groupId`, @Model.groupId);
+        formData.append(`subjectId`, @Model.subjectId);
+        fetch('/StudyingProcess/EditMarks', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(result => {
+                console.log(result);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+
+    function refetch(subjectId, groupId)
+    {
+
+
+        if (subjectId != 0 && groupId != 0)
+            window.location.href = `/StudyingProcess/EditMarks/?groupId=${groupId}&subjectId=${subjectId}`;
+        else {
+            if (subjectId !=0 )
+            tempSubjectId = subjectId;
+            if (groupId != 0)
+            tempGroupId = groupId;
+            if (tempGroupId != 0 && tempSubjectId != 0)
+                window.location.href = `/StudyingProcess/EditMarks/?groupId=${tempGroupId}&subjectId=${tempSubjectId}`;
+        }
+    }
+</script>

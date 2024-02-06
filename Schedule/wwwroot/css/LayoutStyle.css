@@ -1,0 +1,11 @@
+﻿@media (max-width: 991px) {
+    .navbar-right, .navbar-toggler {
+        order: -1;
+    }
+}
+
+
+.navbar--style {
+    background-color: #E8F8F5 !important;
+}
+

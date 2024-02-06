@@ -1,0 +1,23 @@
+﻿
+body {
+    color: #34495E !important;
+    background-color: #E8F8F5;
+}
+
+.form-control {
+    border: solid 2px #2ECC71;
+    background-color: #E8F8F5 !important;
+}
+
+.table {
+    margin: auto;
+    border: solid 2px #2ECC71 !important;
+}
+
+    .table caption {
+        caption-side: top;
+    }
+
+    .table td:first-child {
+        white-space: pre-line;
+    }
