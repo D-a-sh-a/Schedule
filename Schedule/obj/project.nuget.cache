@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bg1WSO9H1/xVLrvsTfTQZZE9vXrtKCLuuxXvKIxx3G/KFRtOWgwQZndo7PK2vKUzkrooNv7CwOuVl+fO/vWnkQ==",
+  "dgSpecHash": "wEPrjrVxQ77On/0GIas9gNFT4RGFZf2C9VUZHdH5Sw2U6TndWIC+K8pwrNofSmZxSIuxSNWR+Me1U1HqmAF9mw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dariy\\Documents\\GitHub\\Schedule\\Schedule.csproj",
+  "projectFilePath": "C:\\Users\\dariy\\Documents\\GitHub\\Schedule\\Schedule\\Schedule.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dariy\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\dariy\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.1\\microsoft.aspnetcore.cryptography.internal.5.0.1.nupkg.sha512",

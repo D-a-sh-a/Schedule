@@ -8,7 +8,7 @@ namespace Schedule.Enums
 		public static DaysEnum Monday => new DaysEnum(DayOfWeek.Monday, "Понеділок");
 		public static DaysEnum Tuesday => new DaysEnum(DayOfWeek.Tuesday, "Вівторок");
 		public static DaysEnum Wednesday => new DaysEnum(DayOfWeek.Wednesday, "Середа");
-		public static DaysEnum Thursday => new DaysEnum(DayOfWeek.Thursday, "Четверг");
+		public static DaysEnum Thursday => new DaysEnum(DayOfWeek.Thursday, "Четвер");
 		public static DaysEnum Friday => new DaysEnum(DayOfWeek.Friday, "П`ятниця");
 		public static DaysEnum Saturday => new DaysEnum(DayOfWeek.Saturday, "Субота");
 		public DayOfWeek DayOfWeek { get; }
@@ -35,7 +35,7 @@ namespace Schedule.Enums
 					case DayOfWeek.Wednesday:
 						return "Середа";
 					case DayOfWeek.Thursday:
-						return "Четверг";
+						return "Четвер";
 					case DayOfWeek.Friday:
 						return "П`ятниця";
 					case DayOfWeek.Saturday:

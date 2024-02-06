@@ -1111,11 +1111,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dariy\\Documents\\GitHub\\Schedule\\Schedule.csproj",
+      "projectUniqueName": "C:\\Users\\dariy\\Documents\\GitHub\\Schedule\\Schedule\\Schedule.csproj",
       "projectName": "Schedule",
-      "projectPath": "C:\\Users\\dariy\\Documents\\GitHub\\Schedule\\Schedule.csproj",
+      "projectPath": "C:\\Users\\dariy\\Documents\\GitHub\\Schedule\\Schedule\\Schedule.csproj",
       "packagesPath": "C:\\Users\\dariy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dariy\\Documents\\GitHub\\Schedule\\obj\\",
+      "outputPath": "C:\\Users\\dariy\\Documents\\GitHub\\Schedule\\Schedule\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
